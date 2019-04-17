@@ -16,7 +16,7 @@ export class SigninPage implements OnInit {
   ngOnInit() {
     this.signInForm=this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
-      password:['']
+      password:['',Validators.required]
     });
   }
 signIn(formData){
