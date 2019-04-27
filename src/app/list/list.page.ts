@@ -29,7 +29,12 @@ export class ListPage implements OnInit {
       });
     }
   }
+  addnewItem(){
+    
+  }
+  deleteFromList(){
 
+  }
   ngOnInit() {
   }
   // add back when alpha.4 is out

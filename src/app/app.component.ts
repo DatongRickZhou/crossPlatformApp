@@ -74,11 +74,6 @@ export class AppComponent {
             icon: 'list'
           },
           {
-            title: 'List',
-            url: '/list',
-            icon: 'list'
-          },
-          {
             title: 'Signout',
             url:'/signout',
             icon: 'exit'
