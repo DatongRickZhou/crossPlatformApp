@@ -11,8 +11,8 @@
 
 <ion-content>
   <div>
-      <ion-button expand=full shape="round"></ion-button>
-      <ion-button expand=full shape="round"></ion-button>
+      <ion-button expand=full shape="round" ></ion-button>
+      <ion-button expand=full shape="round"slot="end"></ion-button>
   </div>
   <ion-list>
     <ion-item *ngFor="let item of items">
@@ -23,9 +23,4 @@
       </div>
     </ion-item>
   </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
 </ion-content>

@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AngularFireAuth} from '@angular/fire/auth';//firebase验证
 
+import {StorageService} from 'src/app/storage.service'
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
@@ -16,11 +18,6 @@ export class AppComponent {
       title: 'Home',
       url: '/home',
       icon: 'home'
-    },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
     },
     {
       title: 'Signup',
@@ -44,7 +41,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private afAuth:AngularFireAuth
+    private afAuth:AngularFireAuth,
+    private storage:StorageService
   ) {
     this.initializeApp();
     this.checkAuthStatus();
@@ -54,6 +52,12 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      document.addEventListener('pause',()=>{
+        this.storage.saveList();
+      },false);
+      document.addEventListener('resume',()=>{
+        this.storage.readList();
+      },false);
     });
   }
   checkAuthStatus(){
