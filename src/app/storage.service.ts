@@ -26,7 +26,7 @@ export class StorageService {
     });
     return data;
   }
-  sortList( data:Array<Item>, direction:string, sortBy:string ){
+  sortList( data:Array<Item>, sortBy:string ){
     // assuming data is homogenous (all same type)
     // get keys of the first item
     let objKeys:Array<string> = Object.keys( data[0] );
@@ -40,14 +40,7 @@ export class StorageService {
       });
       if( sortKey.length == 1 ){
         data.sort((item1,item2) => {
-          //descending order
-          if( direction == 'dsc'){
             return item2[sortKey[0]] - item1[sortKey[0]];
-          }
-          //ascending order
-          else if(direction == 'asc'){
-            return item1[sortKey[0]] - item2[sortKey[0]];
-          }
         });
       }
     }
