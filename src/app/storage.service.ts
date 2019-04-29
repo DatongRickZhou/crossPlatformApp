@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class StorageService {
   list:Array<Item> = [];
   list$ = new BehaviorSubject<Item[]>(this.list);
-  listKey:string = 'item';
+  listKey:string = 'items';
   constructor() { 
     this.readList()
     .then( (data:Array<Item>) => { 
@@ -44,14 +44,14 @@ export class StorageService {
         });
       }
     }
-    
   }
-  addItem( name:string ){
-    let item:Item = {name: name, id: new Date().getTime(), done: 0, status: false, reminder: 0 };
+  addItem( name:string,latitude:number,longitude:number ){
+    let item:Item = {name: name, id: new Date().getTime(), done: 0, status: false,latitude,longitude};
     this.list.push( item );
     this.list$.next(this.list);
     this.saveList();
   }
+  
   deleteItem( id:number ){
     return new Promise( (resolve,reject) => {
       this.list.forEach( ( item, index ) => {

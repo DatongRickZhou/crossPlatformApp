@@ -1,10 +1,11 @@
 import * as tslib_1 from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { ListPage } from './list.page';
+import { TonowModule } from '../tonow/tonow.module';
 var ListPageModule = /** @class */ (function () {
     function ListPageModule() {
     }
@@ -13,7 +14,9 @@ var ListPageModule = /** @class */ (function () {
             imports: [
                 CommonModule,
                 FormsModule,
+                ReactiveFormsModule,
                 IonicModule,
+                TonowModule.forRoot(),
                 RouterModule.forChild([
                     {
                         path: '',

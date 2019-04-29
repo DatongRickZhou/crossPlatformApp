@@ -3,22 +3,22 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-var SignupPage = /** @class */ (function () {
-    function SignupPage(authService, formBuilder, router) {
+var SigninPage = /** @class */ (function () {
+    function SigninPage(authService, formBuilder, router) {
         this.authService = authService;
         this.formBuilder = formBuilder;
         this.router = router;
     }
-    SignupPage.prototype.ngOnInit = function () {
-        this.signUpForm = this.formBuilder.group({
+    SigninPage.prototype.ngOnInit = function () {
+        this.signInForm = this.formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            password: ['', Validators.required]
         });
     };
-    SignupPage.prototype.signUp = function (formData) {
+    SigninPage.prototype.signIn = function (formData) {
         var _this = this;
         console.log(formData);
-        this.authService.signUp(formData.email, formData.password).then(function (response) {
+        this.authService.signIn(formData.email, formData.password).then(function (response) {
             console.log(response);
             _this.router.navigate(['/home']);
         })
@@ -26,15 +26,15 @@ var SignupPage = /** @class */ (function () {
             console.log(error);
         });
     };
-    SignupPage = tslib_1.__decorate([
+    SigninPage = tslib_1.__decorate([
         Component({
-            selector: 'app-signup',
-            templateUrl: './signup.page.html',
-            styleUrls: ['./signup.page.scss'],
+            selector: 'app-signin',
+            templateUrl: './signin.page.html',
+            styleUrls: ['./signin.page.scss'],
         }),
         tslib_1.__metadata("design:paramtypes", [AuthService, FormBuilder, Router])
-    ], SignupPage);
-    return SignupPage;
+    ], SigninPage);
+    return SigninPage;
 }());
-export { SignupPage };
-//# sourceMappingURL=signup.page.js.map
+export { SigninPage };
+//# sourceMappingURL=signin.page.js.map

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AngularFireAuth} from '@angular/fire/auth';//firebase验证
 
+
 import {StorageService} from 'src/app/storage.service'
 
 @Component({

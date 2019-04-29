@@ -8,7 +8,8 @@ var AuthService = /** @class */ (function () {
     //other methods
     AuthService.prototype.signUp = function (email, password) {
         var _this = this;
-        return new Promise(function (resolve, reject) {
+        return new Promise // 只返回一次
+        (function (resolve, reject) {
             _this.afAuth.auth.createUserWithEmailAndPassword(email, password)
                 .then(function (response) {
                 resolve(response);
@@ -21,6 +22,16 @@ var AuthService = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             _this.afAuth.auth.signOut()
                 .then(function () { resolve(true); })
+                .catch(function (error) { reject(error); });
+        });
+    };
+    AuthService.prototype.signIn = function (email, password) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.afAuth.auth.signInWithEmailAndPassword(email, password)
+                .then(function (response) {
+                resolve(response);
+            })
                 .catch(function (error) { reject(error); });
         });
     };

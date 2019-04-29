@@ -16,7 +16,8 @@ var routes = [
         loadChildren: './list/list.module#ListPageModule'
     },
     { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
-    { path: 'signout', loadChildren: './signout/signout.module#SignoutPageModule' }
+    { path: 'signout', loadChildren: './signout/signout.module#SignoutPageModule' },
+    { path: 'signin', loadChildren: './signin/signin.module#SigninPageModule' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

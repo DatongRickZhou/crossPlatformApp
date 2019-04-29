@@ -28,6 +28,7 @@
     "@ionic/storage": "^2.2.0",
     "angular-webstorage-service": "^1.0.2",
     "cordova-android": "8.0.0",
+    "cordova-plugin-geolocation": "^4.0.1",
     "cordova-sqlite-storage": "3.2.0",
     "core-js": "^2.5.4",
     "firebase": "^5.9.2",
@@ -78,7 +79,8 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-geolocation": {}
     },
     "platforms": [
       "android"
