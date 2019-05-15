@@ -63,11 +63,17 @@ export class ListPage implements OnInit {
     
   }
   getColor(status:boolean){
+     switch (status){
+       case true:
+       return "green";
+       case false:
+       return "red";
+    }
     switch (status){
       case true:
-      return "green";
+      return "primary";
       case false:
-      return "red";
+      return "secondary";
     }
   }
   deleteItem(id:number){

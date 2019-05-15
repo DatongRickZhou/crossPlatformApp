@@ -19,18 +19,19 @@
         </form>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-list >
-      <ion-item-sliding  *ngFor="let item of this.todoList; let i = index" #{{index}} >
-          <ion-item lines="full">
+      <ion-item-sliding *ngFor="let item of this.todoList; let i = index" #{{index}} >
+          <ion-item  [class.primary]="item.status"  lines="full">
+              <!-- [ngStyle] ="{ color: item.status == false ? 'secondary' : 'danger' }" -->
+              <!-- <ion-item *ngIf="item.status == false;else item.status == ture " color="secondary" lines="full"> -->
             <ion-checkbox id="item-checkbox" slot="start" value="item.status" (ionChange)="this.toggleStatus(item.id)">
             </ion-checkbox>
-            <ion-label [style.background-color]="getColor(item.status)">
+            <ion-label>
               {{item.name}}
               <p style="color:lightyellow;border: 20px">{{item.id|tonow}}  </p>
               <p style="color:lightyellow;border: 20px">latitude:{{item.latitude}},longitude:{{item.longitude}}   </p>
-            </ion-label>
+            </ion-label >
             <ion-icon slot="end" name="arrow-dropleft"></ion-icon>
           </ion-item >
           <ion-item-options side="end">
